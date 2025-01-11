@@ -1,0 +1,376 @@
+2025/01/10 22:04:22 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+2025/01/10 22:37:34 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+2025/01/10 22:39:18 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+2025/01/10 22:39:49 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+2025/01/10 22:42:32 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+2025/01/10 22:47:24 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+2025/01/10 22:49:14 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+2025/01/10 22:50:00 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+2025/01/10 22:51:43 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+2025/01/10 22:52:17 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+2025/01/10 22:58:40 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+2025/01/11 10:30:46 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+2025/01/11 11:03:32 Failed to connect to RabbitMQ: dial tcp [::1]:5672: connect: connection refused
+PS C:\Users\kevin\OneDrive - TEKO Schweizerische Fachschule AG\Microservices-Unterricht\Docker-Arbeit\1. Producer «Stock-Publisher»> docker logs eed42269b5a060f88e2ef3f125ff2bb9a4c4ed70e599c405e6885100ad5e00be
+
+> stock-liveview@1.0.0 start
+> node app.js
+
+Connecting to MongoDB at mongodb://127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?replicaSet=rs0
+/app/node_modules/mongodb/lib/sdam/topology.js:320
+                const timeoutError = new error_1.MongoServerSelectionError(`Server selection timed out after ${timeout?.duration} ms`, this.description);
+                                     ^
+
+MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+    at Topology.selectServer (/app/node_modules/mongodb/lib/sdam/topology.js:320:38)
+    at async Topology._connect (/app/node_modules/mongodb/lib/sdam/topology.js:204:28)
+    at async Topology.connect (/app/node_modules/mongodb/lib/sdam/topology.js:156:13)
+    at async topologyConnect (/app/node_modules/mongodb/lib/mongo_client.js:233:17)
+    at async MongoClient._connect (/app/node_modules/mongodb/lib/mongo_client.js:246:13)
+    at async MongoClient.connect (/app/node_modules/mongodb/lib/mongo_client.js:171:13)
+    at async initializeMongoDB (/app/server/database.js:11:3)
+    at async /app/app.js:22:3 {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      '127.0.0.1:27017' => ServerDescription {
+        address: '127.0.0.1:27017',
+        type: 'Unknown',
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: 0,
+        maxWireVersion: 0,
+        roundTripTime: -1,
+        minRoundTripTime: 0,
+        lastUpdateTime: 50334888,
+        lastWriteDate: 0,
+        error: MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017
+            at Socket.<anonymous> (/app/node_modules/mongodb/lib/cmap/connect.js:285:44)
+            at Object.onceWrapper (node:events:628:26)
+            at Socket.emit (node:events:513:28)
+            at emitErrorNT (node:internal/streams/destroy:157:8)
+            at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+            at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+          [Symbol(errorLabels)]: Set(1) { 'ResetPool' },
+          [cause]: Error: connect ECONNREFUSED 127.0.0.1:27017
+              at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1278:16) {
+            errno: -111,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '127.0.0.1',
+            port: 27017
+          }
+        },
+        topologyVersion: null,
+        setName: null,
+        setVersion: null,
+        electionId: null,
+        logicalSessionTimeoutMinutes: null,
+        maxMessageSizeBytes: null,
+        maxWriteBatchSize: null,
+        maxBsonObjectSize: null,
+        primary: null,
+        me: null,
+        '$clusterTime': null,
+        iscryptd: false
+      },
+      '127.0.0.1:27018' => ServerDescription {
+        address: '127.0.0.1:27018',
+        type: 'Unknown',
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: 0,
+        maxWireVersion: 0,
+        roundTripTime: -1,
+        minRoundTripTime: 0,
+        lastUpdateTime: 50334906,
+        lastWriteDate: 0,
+        error: MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27018
+            at Socket.<anonymous> (/app/node_modules/mongodb/lib/cmap/connect.js:285:44)
+            at Object.onceWrapper (node:events:628:26)
+            at Socket.emit (node:events:513:28)
+            at emitErrorNT (node:internal/streams/destroy:157:8)
+            at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+            at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+          [Symbol(errorLabels)]: Set(1) { 'ResetPool' },
+          [cause]: Error: connect ECONNREFUSED 127.0.0.1:27018
+              at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1278:16) {
+            errno: -111,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '127.0.0.1',
+            port: 27018
+          }
+        },
+        topologyVersion: null,
+        setName: null,
+        setVersion: null,
+        electionId: null,
+        logicalSessionTimeoutMinutes: null,
+        maxMessageSizeBytes: null,
+        maxWriteBatchSize: null,
+        maxBsonObjectSize: null,
+        primary: null,
+        me: null,
+        '$clusterTime': null,
+        iscryptd: false
+      },
+      '127.0.0.1:27019' => ServerDescription {
+        address: '127.0.0.1:27019',
+        type: 'Unknown',
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: 0,
+        maxWireVersion: 0,
+        roundTripTime: -1,
+        minRoundTripTime: 0,
+        lastUpdateTime: 50334906,
+        lastWriteDate: 0,
+        error: MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27019
+            at Socket.<anonymous> (/app/node_modules/mongodb/lib/cmap/connect.js:285:44)
+            at Object.onceWrapper (node:events:628:26)
+            at Socket.emit (node:events:513:28)
+            at emitErrorNT (node:internal/streams/destroy:157:8)
+            at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+            at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+          [Symbol(errorLabels)]: Set(1) { 'ResetPool' },
+          [cause]: Error: connect ECONNREFUSED 127.0.0.1:27019
+              at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1278:16) {
+            errno: -111,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '127.0.0.1',
+            port: 27019
+          }
+        },
+        topologyVersion: null,
+        setName: null,
+        setVersion: null,
+        electionId: null,
+        logicalSessionTimeoutMinutes: null,
+        maxMessageSizeBytes: null,
+        maxWriteBatchSize: null,
+        maxBsonObjectSize: null,
+        primary: null,
+        me: null,
+        '$clusterTime': null,
+        iscryptd: false
+      }
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'rs0',
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  [Symbol(errorLabels)]: Set(0) {},
+  [cause]: MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017
+      at Socket.<anonymous> (/app/node_modules/mongodb/lib/cmap/connect.js:285:44)
+      at Object.onceWrapper (node:events:628:26)
+      at Socket.emit (node:events:513:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+    [Symbol(errorLabels)]: Set(1) { 'ResetPool' },
+    [cause]: Error: connect ECONNREFUSED 127.0.0.1:27017
+        at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1278:16) {
+      errno: -111,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '127.0.0.1',
+      port: 27017
+    }
+  }
+}
+
+> stock-liveview@1.0.0 start
+> node app.js
+
+Connecting to MongoDB at mongodb://127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?replicaSet=rs0
+/app/node_modules/mongodb/lib/sdam/topology.js:320
+                const timeoutError = new error_1.MongoServerSelectionError(`Server selection timed out after ${timeout?.duration} ms`, this.description);
+                                     ^
+
+MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+    at Topology.selectServer (/app/node_modules/mongodb/lib/sdam/topology.js:320:38)
+    at async Topology._connect (/app/node_modules/mongodb/lib/sdam/topology.js:204:28)
+    at async Topology.connect (/app/node_modules/mongodb/lib/sdam/topology.js:156:13)
+    at async topologyConnect (/app/node_modules/mongodb/lib/mongo_client.js:233:17)
+    at async MongoClient._connect (/app/node_modules/mongodb/lib/mongo_client.js:246:13)
+    at async MongoClient.connect (/app/node_modules/mongodb/lib/mongo_client.js:171:13)
+    at async initializeMongoDB (/app/server/database.js:11:3)
+    at async /app/app.js:22:3 {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      '127.0.0.1:27017' => ServerDescription {
+        address: '127.0.0.1:27017',
+        type: 'Unknown',
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: 0,
+        maxWireVersion: 0,
+        roundTripTime: -1,
+        minRoundTripTime: 0,
+        lastUpdateTime: 43468,
+        lastWriteDate: 0,
+        error: MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017
+            at Socket.<anonymous> (/app/node_modules/mongodb/lib/cmap/connect.js:285:44)
+            at Object.onceWrapper (node:events:628:26)
+            at Socket.emit (node:events:513:28)
+            at emitErrorNT (node:internal/streams/destroy:157:8)
+            at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+            at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+          [Symbol(errorLabels)]: Set(1) { 'ResetPool' },
+          [cause]: Error: connect ECONNREFUSED 127.0.0.1:27017
+              at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1278:16) {
+            errno: -111,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '127.0.0.1',
+            port: 27017
+          }
+        },
+        topologyVersion: null,
+        setName: null,
+        setVersion: null,
+        electionId: null,
+        logicalSessionTimeoutMinutes: null,
+        maxMessageSizeBytes: null,
+        maxWriteBatchSize: null,
+        maxBsonObjectSize: null,
+        primary: null,
+        me: null,
+        '$clusterTime': null,
+        iscryptd: false
+      },
+      '127.0.0.1:27018' => ServerDescription {
+        address: '127.0.0.1:27018',
+        type: 'Unknown',
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: 0,
+        maxWireVersion: 0,
+        roundTripTime: -1,
+        minRoundTripTime: 0,
+        lastUpdateTime: 43468,
+        lastWriteDate: 0,
+        error: MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27018
+            at Socket.<anonymous> (/app/node_modules/mongodb/lib/cmap/connect.js:285:44)
+            at Object.onceWrapper (node:events:628:26)
+            at Socket.emit (node:events:513:28)
+            at emitErrorNT (node:internal/streams/destroy:157:8)
+            at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+            at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+          [Symbol(errorLabels)]: Set(1) { 'ResetPool' },
+          [cause]: Error: connect ECONNREFUSED 127.0.0.1:27018
+              at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1278:16) {
+            errno: -111,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '127.0.0.1',
+            port: 27018
+          }
+        },
+        topologyVersion: null,
+        setName: null,
+        setVersion: null,
+        electionId: null,
+        logicalSessionTimeoutMinutes: null,
+        maxMessageSizeBytes: null,
+        maxWriteBatchSize: null,
+        maxBsonObjectSize: null,
+        primary: null,
+        me: null,
+        '$clusterTime': null,
+        iscryptd: false
+      },
+      '127.0.0.1:27019' => ServerDescription {
+        address: '127.0.0.1:27019',
+        type: 'Unknown',
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: 0,
+        maxWireVersion: 0,
+        roundTripTime: -1,
+        minRoundTripTime: 0,
+        lastUpdateTime: 43468,
+        lastWriteDate: 0,
+        error: MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27019
+            at Socket.<anonymous> (/app/node_modules/mongodb/lib/cmap/connect.js:285:44)
+            at Object.onceWrapper (node:events:628:26)
+            at Socket.emit (node:events:513:28)
+            at emitErrorNT (node:internal/streams/destroy:157:8)
+            at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+            at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+          [Symbol(errorLabels)]: Set(1) { 'ResetPool' },
+          [cause]: Error: connect ECONNREFUSED 127.0.0.1:27019
+              at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1278:16) {
+            errno: -111,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '127.0.0.1',
+            port: 27019
+          }
+        },
+        topologyVersion: null,
+        setName: null,
+        setVersion: null,
+        electionId: null,
+        logicalSessionTimeoutMinutes: null,
+        maxMessageSizeBytes: null,
+        maxWriteBatchSize: null,
+        maxBsonObjectSize: null,
+        primary: null,
+        me: null,
+        '$clusterTime': null,
+        iscryptd: false
+      }
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'rs0',
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  [Symbol(errorLabels)]: Set(0) {},
+  [cause]: MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017
+      at Socket.<anonymous> (/app/node_modules/mongodb/lib/cmap/connect.js:285:44)
+      at Object.onceWrapper (node:events:628:26)
+      at Socket.emit (node:events:513:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+    [Symbol(errorLabels)]: Set(1) { 'ResetPool' },
+    [cause]: Error: connect ECONNREFUSED 127.0.0.1:27017
+        at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1278:16) {
+      errno: -111,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '127.0.0.1',
+      port: 27017
+    }
+  }
+}

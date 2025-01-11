@@ -1,0 +1,64 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"   # Port für AMQP
+      - "15672:15672" # Port für das Webinterface
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - docker-arbeit_default
+  stock-publisher:
+    image: stock-publisher:1.0
+    container_name: stock-publisher
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    networks:
+      - docker-arbeit_default
+    restart: unless-stopped # Neustart bei Verbindungsproblemen
+ 
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    command: mongod --replSet rs0
+    ports:
+      - "27017:27017"
+    networks:
+      - docker-arbeit_default
+  consumer:
+    build: ./consumer  # Verweist auf den Ordner mit Dockerfile und Python-Code
+    container_name: consumer
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - MONGO_HOST=mongodb
+    depends_on:
+      - rabbitmq
+      - mongodb
+    networks:
+      - docker-arbeit_default
+    restart: unless-stopped # Neustart bei Verbindungsproblemen
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3001"
+    depends_on:
+      - mongodb
+    networks:
+      - docker-arbeit_default
+    restart: unless-stopped # Neustart bei Fehlern
+nginx:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+networks:
+  docker-arbeit_default:
+    external: true 
